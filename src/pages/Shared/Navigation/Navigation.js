@@ -9,7 +9,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { NavLink } from "react-router-dom";
 import { makeStyles } from "@mui/styles";
 import logo from "../../../images/logo.png";
-import { useTheme } from "@mui/material";
+import { Container, useTheme } from "@mui/material";
 import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
 import Divider from "@mui/material/Divider";
@@ -39,7 +39,6 @@ const Navigation = () => {
     navBtn: {
       color: "#000",
       textDecoration: "none",
-      marginRight: "20px",
     },
     navIcon: {
       [theme.breakpoints.up("md")]: {
@@ -122,48 +121,54 @@ const Navigation = () => {
   return (
     <>
       <Box sx={{ flexGrow: 1 }}>
-        <AppBar style={{ background: "#F6F6F6" }} position="static">
-          <Toolbar>
-            <IconButton
-              className={navIcon}
-              size="large"
-              edge="start"
-              aria-label="menu"
-              sx={{ mr: 2 }}
-              style={{ color: "blue" }}
-              onClick={() => setState(true)}
-            >
-              <MenuIcon />
-            </IconButton>
-            <Typography
-              className={navLogo}
-              variant="h6"
-              component="div"
-              sx={{ flexGrow: 1 }}
-            >
-              <img height="45" width="130" src={logo} alt="" />
-            </Typography>
-            <Box className={navItemContainer}>
-              <NavLink className={navItem} to="/">
-                <Button color="inherit">Home</Button>
-              </NavLink>
-              <NavLink className={navItem} to="">
-                <Button color="inherit">About us</Button>
-              </NavLink>
-              <NavLink className={navItem} to="">
-                <Button color="inherit">Projects</Button>
-              </NavLink>
-              <NavLink className={navItem} to="">
-                <Button color="inherit">Contact</Button>
-              </NavLink>
-              <NavLink className={navItem} to="">
-                <Button color="inherit">Admin</Button>
-              </NavLink>
-              <NavLink className={navBtn} to="">
-                <Button className={btnColor}>Login</Button>
-              </NavLink>
-            </Box>
-          </Toolbar>
+        <AppBar
+          elevation={0}
+          style={{ background: "#F6F6F6" }}
+          position="static"
+        >
+          <Container>
+            <Toolbar>
+              <IconButton
+                className={navIcon}
+                size="large"
+                edge="start"
+                aria-label="menu"
+                sx={{ mr: 2 }}
+                style={{ color: "blue" }}
+                onClick={() => setState(true)}
+              >
+                <MenuIcon />
+              </IconButton>
+              <Typography
+                className={navLogo}
+                variant="h6"
+                component="div"
+                sx={{ flexGrow: 1 }}
+              >
+                <img height="45" width="130" src={logo} alt="" />
+              </Typography>
+              <Box className={navItemContainer}>
+                <NavLink className={navItem} to="/">
+                  <Button color="inherit">Home</Button>
+                </NavLink>
+                <NavLink className={navItem} to="">
+                  <Button color="inherit">About us</Button>
+                </NavLink>
+                <NavLink className={navItem} to="">
+                  <Button color="inherit">Projects</Button>
+                </NavLink>
+                <NavLink className={navItem} to="">
+                  <Button color="inherit">Contact</Button>
+                </NavLink>
+                <NavLink className={navItem} to="">
+                  <Button color="inherit">Admin</Button>
+                </NavLink>
+                <NavLink className={navBtn} to="">
+                  <Button className={btnColor}>Login</Button>
+                </NavLink>
+              </Box>
+            </Toolbar>
+          </Container>
         </AppBar>
       </Box>
       <div>
