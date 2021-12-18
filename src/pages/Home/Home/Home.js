@@ -1,12 +1,12 @@
 import React from "react";
-import Navigation from "../../Shared/Navigation/Navigation";
 import Banner from "../Banner/Banner";
+import Project from "../Projects/Projects";
 
 const Home = () => {
   return (
     <>
-      <Navigation />
       <Banner />
+      <Project />
     </>
   );
 };
