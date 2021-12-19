@@ -1,12 +1,14 @@
 import React from "react";
 import Banner from "../Banner/Banner";
-import Project from "../Projects/Projects";
+import Projects from "../Projects/Projects";
+import Services from "../Services/Services";
 
 const Home = () => {
   return (
     <>
       <Banner />
-      <Project />
+      <Projects />
+      <Services />
     </>
   );
 };
