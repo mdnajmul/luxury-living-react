@@ -222,7 +222,7 @@ const Services = () => {
         <Typography
           sx={{
             mt: 4,
-            mb: 4,
+            mb: 2,
             textAlign: "center",
           }}
         >
