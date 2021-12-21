@@ -55,7 +55,7 @@ const Testimonials = () => {
   };
 
   return (
-    <Box sx={{ flexGrow: 1, background: "#F6F6F6" }}>
+    <Box sx={{ flexGrow: 1, background: "#F6F6F6", pb: 8 }}>
       <Container>
         <Typography
           sx={{
@@ -72,7 +72,7 @@ const Testimonials = () => {
         <Grid>
           <Slider {...settings}>
             <Grid sx={{ mt: 4 }}>
-              <Card sx={{ minWidth: 275, border: 0, boxShadow: 2 }}>
+              <Card sx={{ minWidth: 275, border: 0, boxShadow: 0 }}>
                 <CardMedia
                   component="img"
                   style={{
@@ -115,7 +115,7 @@ const Testimonials = () => {
               </Card>
             </Grid>
             <Grid sx={{ mt: 4 }}>
-              <Card sx={{ minWidth: 275, border: 0, boxShadow: 2 }}>
+              <Card sx={{ minWidth: 275, border: 0, boxShadow: 0 }}>
                 <CardMedia
                   component="img"
                   style={{
@@ -158,7 +158,7 @@ const Testimonials = () => {
               </Card>
             </Grid>
             <Grid sx={{ mt: 4 }}>
-              <Card sx={{ minWidth: 275, border: 0, boxShadow: 2 }}>
+              <Card sx={{ minWidth: 275, border: 0, boxShadow: 0 }}>
                 <CardMedia
                   component="img"
                   style={{
@@ -201,7 +201,7 @@ const Testimonials = () => {
               </Card>
             </Grid>
             <Grid sx={{ mt: 4 }}>
-              <Card sx={{ minWidth: 275, border: 0, boxShadow: 2 }}>
+              <Card sx={{ minWidth: 275, border: 0, boxShadow: 0 }}>
                 <CardMedia
                   component="img"
                   style={{
