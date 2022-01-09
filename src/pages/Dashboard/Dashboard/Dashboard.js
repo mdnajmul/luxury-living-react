@@ -233,7 +233,8 @@ const Dashboard = (props) => {
         component="main"
         sx={{
           flexGrow: 1,
-          p: 3,
+          pl: 3,
+          pr: 3,
           width: { sm: `calc(100% - ${drawerWidth}px)` },
           background: "#E5E5E5",
           height: "100vh",
