@@ -11,6 +11,7 @@ import Books from "./pages/Dashboard/Books/Books";
 import MyBooks from "./pages/Dashboard/MyBooks/MyBooks";
 import Review from "./pages/Dashboard/Review/Review";
 import initializeAuthentication from "./Firebase/firebase.init";
+import Login from "./pages/Login/Login/Login";
 
 initializeAuthentication();
 
@@ -20,6 +21,8 @@ function App() {
       <Navigation />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/dashboard" element={<Dashboard />}>
           <Route path={`/dashboard/order`} element={<Orders></Orders>}></Route>
           <Route

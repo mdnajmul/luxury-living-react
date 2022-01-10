@@ -163,7 +163,7 @@ const Navigation = () => {
                 <NavLink className={navItem} to="/dashboard">
                   <Button color="inherit">Admin</Button>
                 </NavLink>
-                <NavLink className={navBtn} to="">
+                <NavLink className={navBtn} to="/login">
                   <Button className={btnColor}>Login</Button>
                 </NavLink>
               </Box>
