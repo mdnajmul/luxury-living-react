@@ -53,7 +53,7 @@ const Dashboard = (props) => {
         <img height="45" width="130" src={logo} alt="" />
       </Typography>
       <Toolbar />
-      {false ? (
+      {true ? (
         <Box>
           <NavLink
             style={{ textDecoration: "none" }}
