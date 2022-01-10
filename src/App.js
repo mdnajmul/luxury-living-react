@@ -10,7 +10,7 @@ import ManageServices from "./pages/Dashboard/ManageServices/ManageServices";
 import Books from "./pages/Dashboard/Books/Books";
 import MyBooks from "./pages/Dashboard/MyBooks/MyBooks";
 import Review from "./pages/Dashboard/Review/Review";
-import initializeAuthentication from "./Firebase/firebase.init";
+import initializeAuthentication from "./pages/Login/Firebase/firebase.init";
 import Login from "./pages/Login/Login/Login";
 import Register from "./pages/Login/Register/Register";
 
