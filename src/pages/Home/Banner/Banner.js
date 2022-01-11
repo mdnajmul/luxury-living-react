@@ -58,7 +58,11 @@ const Banner = () => {
                   Online Easte Agency, the mordern way to sell your own home,
                   You can use Griffin Residential to market your property
                 </Typography>
-                <NavLink className={navBtn} to="">
+                <NavLink
+                  style={{ marginLeft: "-10px" }}
+                  className={navBtn}
+                  to=""
+                >
                   <Button className={btnColor}>Booking</Button>
                 </NavLink>
               </Grid>
