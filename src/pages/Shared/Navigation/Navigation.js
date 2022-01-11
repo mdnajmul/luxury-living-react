@@ -16,8 +16,10 @@ import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import "./Navigation.css";
+import useAuth from "../../../hooks/useAuth";
 
 const Navigation = () => {
+  const { user, admin, logOut } = useAuth();
   const theme = useTheme();
   const useStyle = makeStyles({
     navItem: {
@@ -99,21 +101,39 @@ const Navigation = () => {
           </ListItemText>
         </ListItem>
         <Divider />
-        <ListItem button>
-          <ListItemText>
-            <NavLink className={navItem} to="">
-              <Button color="inherit">Admin</Button>
-            </NavLink>
-          </ListItemText>
-        </ListItem>
+
+        {user?.email && (
+          <ListItem button>
+            <ListItemText>
+              <NavLink className={navItem} to="/dashboard">
+                <Button color="inherit">Dashboard</Button>
+              </NavLink>
+            </ListItemText>
+          </ListItem>
+        )}
         <Divider />
-        <ListItem button>
-          <ListItemText>
-            <NavLink className={navBtn} to="">
-              <Button className={btnColor}>Login</Button>
-            </NavLink>
-          </ListItemText>
-        </ListItem>
+
+        {user?.email ? (
+          <ListItem button>
+            <ListItemText>
+              <Button className={btnColor} onClick={logOut}>
+                Logout
+              </Button>
+            </ListItemText>
+          </ListItem>
+        ) : (
+          <ListItem button>
+            <ListItemText>
+              <NavLink
+                style={{ marginLeft: "15px" }}
+                className={navBtn}
+                to="/login"
+              >
+                <Button className={btnColor}>Login</Button>
+              </NavLink>
+            </ListItemText>
+          </ListItem>
+        )}
         <Divider />
       </List>
     </Box>
@@ -160,12 +180,22 @@ const Navigation = () => {
                 <NavLink className={navItem} to="">
                   <Button color="inherit">Contact</Button>
                 </NavLink>
-                <NavLink className={navItem} to="/dashboard">
-                  <Button color="inherit">Admin</Button>
-                </NavLink>
-                <NavLink className={navBtn} to="/login">
-                  <Button className={btnColor}>Login</Button>
-                </NavLink>
+
+                {user?.email && (
+                  <NavLink className={navItem} to="/dashboard">
+                    <Button color="inherit">Dashboard</Button>
+                  </NavLink>
+                )}
+
+                {user?.email ? (
+                  <Button className={btnColor} onClick={logOut}>
+                    Logout
+                  </Button>
+                ) : (
+                  <NavLink className={navBtn} to="/login">
+                    <Button className={btnColor}>Login</Button>
+                  </NavLink>
+                )}
               </Box>
             </Toolbar>
           </Container>
