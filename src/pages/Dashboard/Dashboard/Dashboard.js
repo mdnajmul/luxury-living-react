@@ -1,5 +1,4 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core";
 import PropTypes from "prop-types";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -9,34 +8,17 @@ import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import { NavLink } from "react-router-dom";
-import { Button } from "@mui/material";
 import logo from "../../../images/logo.png";
-import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
-import AddIcon from "@mui/icons-material/Add";
-import PersonAddAlt1Icon from "@mui/icons-material/PersonAddAlt1";
-import AppsIcon from "@mui/icons-material/Apps";
-import LogoutIcon from "@mui/icons-material/Logout";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import MessageIcon from "@mui/icons-material/Message";
+import defaultUser from "../../../images/user.png";
 import "./Dashboard.css";
 import NestedRoutes from "../NestedRoutes/NestedRoutes";
-
-const useStyles = makeStyles(() => ({
-  link: {
-    color: "#878787 !important",
-    textTransform: "none !important",
-    "&:hover": {
-      color: "#251D58 !important",
-      fontWeight: "600",
-    },
-  },
-}));
+import useAuth from "../../../hooks/useAuth";
+import SidebarNavigation from "../SidebarNavigation/SidebarNavigation";
 
 const drawerWidth = 200;
 
 const Dashboard = (props) => {
-  const classes = useStyles();
+  const { user, admin } = useAuth();
 
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -54,96 +36,7 @@ const Dashboard = (props) => {
         <img height="45" width="130" src={logo} alt="" />
       </Typography>
       <Toolbar />
-      {true ? (
-        <Box>
-          <NavLink
-            style={{ textDecoration: "none" }}
-            to={`/dashboard/order`}
-            activeClassName="active"
-          >
-            <Button className={classes.link}>
-              <ShoppingBagIcon sx={{ mr: 2 }} /> Order list
-            </Button>
-          </NavLink>
-          <br />
-          <NavLink
-            style={{ textDecoration: "none" }}
-            to={`/dashboard/addservice`}
-            activeClassName="active"
-          >
-            <Button className={classes.link}>
-              <AddIcon sx={{ mr: 2 }} /> Add Service
-            </Button>
-          </NavLink>
-          <br />
-          <NavLink
-            style={{ textDecoration: "none" }}
-            to={`/dashboard/makeadmin`}
-            activeClassName="active"
-          >
-            <Button className={classes.link}>
-              <PersonAddAlt1Icon sx={{ mr: 2 }} /> Make Admin
-            </Button>
-          </NavLink>
-          <br />
-          <NavLink
-            style={{ textDecoration: "none" }}
-            to={`/dashboard/manageservice`}
-            activeClassName="active"
-          >
-            <Button className={classes.link}>
-              <AppsIcon sx={{ mr: 2 }} /> Manage Services
-            </Button>
-          </NavLink>
-          <br />
-          <NavLink style={{ textDecoration: "none" }} to="/home">
-            <Button className={classes.link}>
-              <LogoutIcon sx={{ mr: 2 }} />
-              Logout
-            </Button>
-          </NavLink>
-        </Box>
-      ) : (
-        <Box>
-          <NavLink
-            to={`/dashboard/book`}
-            style={{ textDecoration: "none" }}
-            sx={{ mx: "auto" }}
-            activeClassName="active"
-          >
-            <Button className={classes.link}>
-              <ShoppingCartIcon sx={{ mr: 2 }} /> Book
-            </Button>
-          </NavLink>
-          <br />
-          <NavLink
-            to={`/dashboard/mybooks`}
-            style={{ textDecoration: "none" }}
-            activeClassName="active"
-          >
-            <Button className={classes.link}>
-              <ShoppingBagIcon sx={{ mr: 2 }} /> Booking List
-            </Button>
-          </NavLink>
-          <br />
-          <NavLink
-            to={`/dashboard/review`}
-            style={{ textDecoration: "none" }}
-            activeClassName="active"
-          >
-            <Button className={classes.link}>
-              <MessageIcon sx={{ mr: 2 }} />
-              Review
-            </Button>
-          </NavLink>
-          <br />
-          <NavLink style={{ textDecoration: "none" }} to="/home">
-            <Button className={classes.link}>
-              <LogoutIcon sx={{ mr: 2 }} /> Logout
-            </Button>
-          </NavLink>
-        </Box>
-      )}
+      <SidebarNavigation />
     </div>
   );
 
@@ -175,21 +68,36 @@ const Dashboard = (props) => {
             sx={{ color: "#0C0C0C", fontWeight: "600" }}
             component="div"
           >
-            Dashboard
-          </Typography>
-          <Typography
-            sx={{ color: "#251D58", fontWeight: "900", mx: 2 }}
-            component="div"
-          >
-            |
-          </Typography>
-          <Typography
-            sx={{
-              color: "#0C0C0C",
-              fontWeight: "600",
-            }}
-          >
-            Najmul Ovi
+            {user.email && (
+              <div className="mx-3 text-center">
+                {user.photoURL ? (
+                  <img
+                    style={{
+                      width: "40px",
+                      height: "40px",
+                      borderRadius: "50%",
+                    }}
+                    src={user?.photoURL}
+                    alt=""
+                  />
+                ) : (
+                  <img
+                    style={{
+                      width: "40px",
+                      height: "40px",
+                      borderRadius: "50%",
+                    }}
+                    src={defaultUser}
+                    alt=""
+                  />
+                )}
+
+                <span className="">
+                  {" "}
+                  {user?.displayName} | {admin ? "Admin" : "Subscriber"}
+                </span>
+              </div>
+            )}
           </Typography>
         </Toolbar>
       </AppBar>

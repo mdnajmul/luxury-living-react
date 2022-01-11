@@ -4,9 +4,9 @@ import { Navigate, useLocation } from "react-router";
 import useAuth from "../hooks/useAuth";
 
 const PrivateRoute = ({ children }) => {
-  const { user } = useAuth();
+  const { user, loading } = useAuth();
   const location = useLocation();
-  const loading = useSelector((state) => state.entities.user.loading);
+  // const loading = useSelector((state) => state.entities.user.loading);
 
   if (loading) {
     return (
