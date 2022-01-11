@@ -1,16 +1,14 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import { Navigate, useLocation } from "react-router";
 import useAuth from "../hooks/useAuth";
 
 const PrivateRoute = ({ children }) => {
-  const { user, loading } = useAuth();
+  const { user, isLoading } = useAuth();
   const location = useLocation();
-  // const loading = useSelector((state) => state.entities.user.loading);
 
-  if (loading) {
+  if (isLoading) {
     return (
-      <div className="d-flex justify-content-center align-items-center">
+      <div className="d-flex justify-content-center align-items-center mt-5">
         <div className="spinner-border text-primary"></div>
       </div>
     );

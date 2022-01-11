@@ -81,13 +81,13 @@ const Login = () => {
         </div>
 
         {loading && (
-          <div className="text-center mt-4">
+          <div className="text-center mt-5">
             <div className="spinner-border text-primary"></div>
           </div>
         )}
 
         {authError && (
-          <div className="alert alert-danger mt-4" role="alert">
+          <div className="alert alert-danger mt-5" role="alert">
             {authError}
           </div>
         )}

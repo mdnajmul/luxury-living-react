@@ -8,6 +8,7 @@ import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
+import { NavLink } from "react-router-dom";
 import logo from "../../../images/logo.png";
 import defaultUser from "../../../images/user.png";
 import "./Dashboard.css";
@@ -28,13 +29,15 @@ const Dashboard = (props) => {
 
   const drawer = (
     <div>
-      <Typography
-        variant="h6"
-        component="div"
-        sx={{ flexGrow: 1, mt: 2, ml: 2 }}
-      >
-        <img height="45" width="130" src={logo} alt="" />
-      </Typography>
+      <NavLink to="/" style={{ cursor: "pointer" }}>
+        <Typography
+          variant="h6"
+          component="div"
+          sx={{ flexGrow: 1, mt: 2, ml: 2 }}
+        >
+          <img height="45" width="130" src={logo} alt="" />
+        </Typography>
+      </NavLink>
       <Toolbar />
       <SidebarNavigation />
     </div>

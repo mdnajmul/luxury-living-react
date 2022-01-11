@@ -8,7 +8,7 @@ import {
   updateProfile,
   signInWithEmailAndPassword,
 } from "firebase/auth";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import initializeAuthentication from "../pages/Login/Firebase/firebase.init";
@@ -26,6 +26,7 @@ initializeAuthentication();
 const useFirebase = () => {
   const auth = getAuth();
   const dispatch = useDispatch();
+  const [isLoading, setIsLoading] = useState(true);
 
   const user = useSelector((state) => state.entities.user.userInfo);
   const authError = useSelector((state) => state.entities.user.error);
@@ -36,6 +37,7 @@ const useFirebase = () => {
 
   // Register new user
   const registerUser = (name, email, password, navigate, location) => {
+    setIsLoading(true);
     dispatch(setLoading({ loading: true }));
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
@@ -64,6 +66,7 @@ const useFirebase = () => {
         dispatch(setAuthError({ error: error.message }));
       })
       .finally(() => {
+        setIsLoading(true);
         // update loading status
         dispatch(setLoading({ loading: false }));
       });
@@ -71,6 +74,7 @@ const useFirebase = () => {
 
   // Login with email and password
   const loginWithEmailAndPassword = (email, password, navigate, location) => {
+    setIsLoading(true);
     dispatch(setLoading({ loading: true }));
     signInWithEmailAndPassword(auth, email, password)
       .then((result) => {
@@ -84,6 +88,7 @@ const useFirebase = () => {
         dispatch(setAuthError({ error: error.message }));
       })
       .finally(() => {
+        setIsLoading(false);
         // Update loading status
         dispatch(setLoading({ loading: false }));
       });
@@ -92,7 +97,7 @@ const useFirebase = () => {
   // Google sign in
   const signInWithGoogle = (navigate, location) => {
     const googleProvider = new GoogleAuthProvider();
-
+    setIsLoading(true);
     // Set Loading status to true
     dispatch(setLoading({ loading: true }));
 
@@ -129,6 +134,7 @@ const useFirebase = () => {
         dispatch(setAuthError({ error: error.message }));
       })
       .finally(() => {
+        setIsLoading(false);
         // Set Loading status to false
         dispatch(setLoading({ loading: false }));
       });
@@ -148,20 +154,24 @@ const useFirebase = () => {
         );
         // dispatch(setLoading({ loading: false }));
       } else {
+        setUser({});
       }
+      setIsLoading(false);
     });
     return () => unsubscribe;
   }, [auth]);
 
   // Log Out
   const logOut = () => {
+    setIsLoading(true);
     signOut(auth)
       .then(() => {
         dispatch(setUser({}));
       })
       .catch((error) => {
         // An error happened.
-      });
+      })
+      .finally(() => setIsLoading(false));
   };
 
   // Redirect Initial Page
@@ -173,6 +183,7 @@ const useFirebase = () => {
   return {
     user,
     authError,
+    isLoading,
     loading,
     admin,
     registerUser,
