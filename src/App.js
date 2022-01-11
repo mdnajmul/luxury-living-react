@@ -13,6 +13,7 @@ import initializeAuthentication from "./pages/Login/Firebase/firebase.init";
 import Login from "./pages/Login/Login/Login";
 import Register from "./pages/Login/Register/Register";
 import PageNotFound from "./pages/PageNotFound/PageNotFound";
+import PrivateRoute from "./PrivateRoute/PrivateRoute";
 
 initializeAuthentication();
 
@@ -24,6 +25,15 @@ function App() {
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="*" element={<PageNotFound />} />
+
+      <Route
+        path="/dashboard/*"
+        element={
+          <PrivateRoute>
+            <Dashboard />
+          </PrivateRoute>
+        }
+      />
       <Route path="/dashboard" element={<Dashboard />}>
         <Route path={`/dashboard/order`} element={<Orders></Orders>}></Route>
         <Route
