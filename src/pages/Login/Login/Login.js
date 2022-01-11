@@ -1,24 +1,20 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import useAuth from "../../../hooks/useAuth";
 import logo from "../../../images/logo.png";
 import "./Login.css";
 
 const Login = () => {
-  // const {
-  //     user,
-  //     authError,
-  //     loading,
-  //     signInWithGoogle,
-  //     loginWithEmailAndPassword,
-  //   } = useAuth();
+  const { authError, loading, signInWithGoogle, loginWithEmailAndPassword } =
+    useAuth();
 
   const navigate = useNavigate();
   const location = useLocation();
 
   // handle google sign in
   const handleGoogleSignIn = () => {
-    // signInWithGoogle(navigate, location);
+    signInWithGoogle(navigate, location);
   };
 
   // React hook form
@@ -29,7 +25,7 @@ const Login = () => {
   } = useForm();
   const onSubmit = (data) => {
     // Login user using email and passworld
-    // loginWithEmailAndPassword(data.email, data.password, navigate, location);
+    loginWithEmailAndPassword(data.email, data.password, navigate, location);
     console.log(data);
   };
 
@@ -84,15 +80,15 @@ const Login = () => {
           </button>
         </div>
 
-        {false && (
+        {loading && (
           <div className="text-center mt-4">
             <div className="spinner-border text-primary"></div>
           </div>
         )}
 
-        {false && (
+        {authError && (
           <div className="alert alert-danger mt-4" role="alert">
-            {""}
+            {authError}
           </div>
         )}
       </div>

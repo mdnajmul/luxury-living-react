@@ -1,10 +1,11 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import useAuth from "../../../hooks/useAuth";
 import logo from "../../../images/logo.png";
 
 const Register = () => {
-  // const {registerUser, loading, authError} = useAuth();
+  const { registerUser, loading, authError } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -19,7 +20,7 @@ const Register = () => {
     if (data.password === data.password2) {
       const fullName = `${data.firstName} ${data.lastName}`;
       // Register new user based on data
-      //   registerUser(fullName, data.email, data.password, navigate, location);
+      registerUser(fullName, data.email, data.password, navigate, location);
       console.log(data);
     } else if (data.password !== data.password2) {
       alert("Password Did not Matched");
@@ -107,15 +108,15 @@ const Register = () => {
             />
           </div>
         </form>
-        {false && (
+        {loading && (
           <div className="text-center">
             <div className="spinner-border text-primary"></div>
           </div>
         )}
 
-        {false && (
+        {authError && (
           <div className="alert alert-danger mt-4" role="alert">
-            {""}
+            {authError}
           </div>
         )}
       </div>

@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { apiCallBegan } from "./api";
 
 const initialState = {
-  myOrders: [],
+  myBooks: [],
   reviewSubmited: false,
   testimonials: {
     allTestimonial: [],
