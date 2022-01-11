@@ -17,6 +17,7 @@ const MakeAdmin = () => {
 
   return (
     <Box
+      className="mt-5"
       sx={{
         background: "#fff",
         p: "5%",

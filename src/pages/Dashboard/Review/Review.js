@@ -48,7 +48,7 @@ const Review = () => {
     // dispatch(savedReview(review));
   };
   return (
-    <div className="mt-4 container" style={style.reviewContainer}>
+    <div className="mt-5 container" style={style.reviewContainer}>
       <div className="login-form border rounded">
         <div>
           <div>

@@ -102,7 +102,7 @@ const ManageServices = () => {
   };
 
   return (
-    <Box>
+    <Box className="mt-5">
       {allServices.length > 0 && (
         <TableContainer component={Paper}>
           <Table aria-label="simple table">

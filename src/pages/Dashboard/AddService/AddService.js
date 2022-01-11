@@ -27,7 +27,7 @@ const AddService = () => {
     // setLoader(true);
   };
   return (
-    <div>
+    <div className="mt-5">
       <div className="form-container">
         <div>
           <div>

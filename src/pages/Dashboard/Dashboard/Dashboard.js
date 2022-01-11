@@ -9,7 +9,7 @@ import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import { Outlet, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { Button } from "@mui/material";
 import logo from "../../../images/logo.png";
 import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
@@ -20,6 +20,7 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import MessageIcon from "@mui/icons-material/Message";
 import "./Dashboard.css";
+import NestedRoutes from "../NestedRoutes/NestedRoutes";
 
 const useStyles = makeStyles(() => ({
   link: {
@@ -241,8 +242,8 @@ const Dashboard = (props) => {
         }}
       >
         <Toolbar />
-
-        <Outlet />
+        {/* Nested Routes */}
+        <NestedRoutes />
       </Box>
     </Box>
   );
