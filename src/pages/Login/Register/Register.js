@@ -99,11 +99,13 @@ const Register = () => {
             )}
           </div>
 
-          <input
-            type="submit"
-            className="btn btn-primary fw-bold"
-            value="Register"
-          />
+          <div className="text-center">
+            <input
+              type="submit"
+              className="btn btn-primary fw-bold"
+              value="Register"
+            />
+          </div>
         </form>
         {false && (
           <div className="text-center">

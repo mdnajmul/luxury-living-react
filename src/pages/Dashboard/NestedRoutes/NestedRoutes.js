@@ -1,6 +1,7 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import AddService from "../AddService/AddService";
+import AdminRoute from "../AdminRoute/AdminRoute";
 import Books from "../Books/Books";
 import MakeAdmin from "../MakeAdmin/MakeAdmin";
 import ManageServices from "../ManageServices/ManageServices";
@@ -11,13 +12,39 @@ import Review from "../Review/Review";
 const NestedRoutes = () => {
   return (
     <>
+      {/* Admin Routes */}
       <Routes>
-        <Route path="order" element={<Orders></Orders>}></Route>
-        <Route path="addservice" element={<AddService></AddService>}></Route>
-        <Route path="makeadmin" element={<MakeAdmin></MakeAdmin>}></Route>
+        <Route
+          path="order"
+          element={
+            <AdminRoute>
+              <Orders></Orders>
+            </AdminRoute>
+          }
+        ></Route>
+        <Route
+          path="addservice"
+          element={
+            <AdminRoute>
+              <AddService></AddService>
+            </AdminRoute>
+          }
+        ></Route>
+        <Route
+          path="makeadmin"
+          element={
+            <AdminRoute>
+              <MakeAdmin></MakeAdmin>
+            </AdminRoute>
+          }
+        ></Route>
         <Route
           path="manageservice"
-          element={<ManageServices></ManageServices>}
+          element={
+            <AdminRoute>
+              <ManageServices></ManageServices>
+            </AdminRoute>
+          }
         ></Route>
         <Route path="book" element={<Books></Books>}></Route>
         <Route path="mybooks" element={<MyBooks></MyBooks>}></Route>

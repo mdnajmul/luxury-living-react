@@ -69,11 +69,13 @@ const Login = () => {
               <span className="text-warning">This field is required</span>
             )}
           </div>
-          <input
-            type="submit"
-            className="btn btn-primary fw-bold"
-            value="Login"
-          />
+          <div className="text-center">
+            <input
+              type="submit"
+              className="btn btn-primary fw-bold"
+              value="Login"
+            />
+          </div>
         </form>
         <div className="mt-4 d-grid">
           <button onClick={handleGoogleSignIn} className="btn btn-success">
