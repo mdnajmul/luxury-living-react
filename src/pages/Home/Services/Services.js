@@ -8,14 +8,26 @@ import {
   Grid,
   Typography,
 } from "@mui/material";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import officeInteriorImg from "../../../images/office_interior.png";
 import showroomDesignImg from "../../../images/showroom_design.png";
 import residentialImg from "../../../images/residential.png";
 import { makeStyles } from "@mui/styles";
 import { NavLink } from "react-router-dom";
+import Service from "../../Service/Service";
 
 const Services = () => {
+  const [services, setServices] = useState([]);
+
+  //Get all services
+  useEffect(() => {
+    fetch("https://dry-falls-42041.herokuapp.com/services")
+      .then((res) => res.json())
+      .then((data) => setServices(data));
+  }, []);
+
+  const homeServices = services.slice(0, 3);
+
   const useStyle = makeStyles({
     navBtn: {
       color: "#000",
@@ -71,153 +83,9 @@ const Services = () => {
           spacing={{ xs: 2, md: 3 }}
           columns={{ xs: 4, sm: 8, md: 12 }}
         >
-          <Grid sx={{ mt: 4 }} item xs={4} sm={4} md={4}>
-            <Card sx={{ minWidth: 275, border: 0, boxShadow: 2 }}>
-              <CardMedia
-                component="img"
-                style={{
-                  width: "30%",
-                  margin: "0 auto",
-                  padding: "8px",
-                }}
-                image={officeInteriorImg}
-                alt="green iguana"
-              />
-              <CardContent sx={{ px: 2 }}>
-                <Typography
-                  sx={{
-                    textAlign: "center",
-                    color: "#16322E",
-                    fontWeight: 600,
-                  }}
-                  variant="h6"
-                  component="div"
-                >
-                  Office Interior Design
-                </Typography>
-                <Typography
-                  sx={{
-                    textAlign: "center",
-                    color: "#251D58",
-                    fontWeight: 600,
-                  }}
-                  variant="h6"
-                  component="div"
-                >
-                  $299
-                </Typography>
-                <Typography
-                  sx={{
-                    textAlign: "center",
-                    color: "#606268",
-                  }}
-                  variant="p"
-                  component="p"
-                >
-                  Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-                  amet sint. Velit officia consequat duis enim velit mollit.
-                </Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-          <Grid sx={{ mt: 4 }} item xs={4} sm={4} md={4}>
-            <Card sx={{ minWidth: 275, border: 0, boxShadow: 2 }}>
-              <CardMedia
-                component="img"
-                style={{
-                  width: "30%",
-                  margin: "0 auto",
-                  padding: "8px",
-                }}
-                image={showroomDesignImg}
-                alt="green iguana"
-              />
-              <CardContent sx={{ px: 2 }}>
-                <Typography
-                  sx={{
-                    textAlign: "center",
-                    color: "#16322E",
-                    fontWeight: 600,
-                  }}
-                  variant="h6"
-                  component="div"
-                >
-                  Showroom Design
-                </Typography>
-                <Typography
-                  sx={{
-                    textAlign: "center",
-                    color: "#251D58",
-                    fontWeight: 600,
-                  }}
-                  variant="h6"
-                  component="div"
-                >
-                  $399
-                </Typography>
-                <Typography
-                  sx={{
-                    textAlign: "center",
-                    color: "#606268",
-                  }}
-                  variant="p"
-                  component="p"
-                >
-                  Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-                  amet sint. Velit officia consequat duis enim velit mollit.
-                </Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-          <Grid sx={{ mt: 4 }} item xs={4} sm={4} md={4}>
-            <Card sx={{ minWidth: 275, border: 0, boxShadow: 2 }}>
-              <CardMedia
-                component="img"
-                style={{
-                  width: "30%",
-                  margin: "0 auto",
-                  padding: "8px",
-                }}
-                image={residentialImg}
-                alt="green iguana"
-              />
-              <CardContent sx={{ px: 2 }}>
-                <Typography
-                  sx={{
-                    textAlign: "center",
-                    color: "#16322E",
-                    fontWeight: 600,
-                  }}
-                  variant="h6"
-                  component="div"
-                >
-                  Residential/ Home
-                </Typography>
-                <Typography
-                  sx={{
-                    textAlign: "center",
-                    color: "#251D58",
-                    fontWeight: 600,
-                  }}
-                  variant="h6"
-                  component="div"
-                >
-                  $499
-                </Typography>
-                <Typography
-                  sx={{
-                    textAlign: "center",
-                    color: "#606268",
-                  }}
-                  variant="p"
-                  component="p"
-                >
-                  Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-                  amet sint. Velit officia consequat duis enim velit mollit.
-                </Typography>
-              </CardContent>
-            </Card>
-          </Grid>
+          {homeServices.map((service) => (
+            <Service key={service?._id} service={service}></Service>
+          ))}
         </Grid>
         <Typography
           sx={{

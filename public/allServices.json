@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Office Interior Design",
+    "img": "https://i.ibb.co/Lh2j31L/office-interior.png",
+    "price": 299,
+    "description": "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit."
+  },
+  {
+    "name": "Showroom Design",
+    "img": "https://i.ibb.co/Bz7rqXL/showroom-design.png",
+    "price": 399,
+    "description": "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit."
+  },
+  {
+    "name": "Residential/ Home",
+    "img": "https://i.ibb.co/sR2HTJr/residential.png",
+    "price": 499,
+    "description": "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit."
+  },
+  {
+    "name": "Shifting Services",
+    "img": "https://i.ibb.co/7YsB62H/shifting.jpg",
+    "price": 99,
+    "description": "We offer a full range of packing, moving and storage services. This includes local moves and full packaging services. If you are packing yourself we can provide boxes and any other packing supplies for you to purchase."
+  },
+  {
+    "name": "Work Station Design",
+    "img": "https://i.ibb.co/16JyYsS/workstationdesign.jpg",
+    "price": 199,
+    "description": "We provide best interior expert professionals and architect. We have background checked and portfolio checked experts. We provide convenient service delivery with proper quality. Delivery of promised product and workmanship. Necessary equipment will be carried at site. On time work completion and site handover."
+  },
+  {
+    "name": "Retail Shop & Store Design",
+    "img": "https://i.ibb.co/Z1PjFdL/retailshopstoredesign.jpg",
+    "price": 299,
+    "description": "Systematic planning of space, lights, rendering and design drawings of the Shop, Restaurants and Cafes. Drafting an estimate cost list of the materials required Coordination with implementation team, architects and installing professionals Efficient research on venues for purchasing affordable, yet efficient materials Overall project supervision."
+  },
+  {
+    "name": "Interior Paint",
+    "img": "https://i.ibb.co/3kk6S0C/interior.jpg",
+    "price": 349,
+    "description": "We ensure experienced professional and expert painters. We ensure only branded products are used by experts. We ensure proper safety and service equipment carries by expert We ensure proper covering before painting and cleaning after service. We ensure right measurement, process and product at the same time. We ensure our customer post service warranty protection."
+  },
+  {
+    "name": "Exterior Paint",
+    "img": "https://i.ibb.co/LpgjwBw/exterior.png",
+    "price": 449,
+    "description": "We ensure experienced professional and expert painters. We ensure only branded products are used by experts. We ensure proper safety and service equipment carries by expert We ensure proper covering before painting and cleaning after service. We ensure right measurement, process and product at the same time. We ensure our customer post service warranty protection."
+  }
+]
