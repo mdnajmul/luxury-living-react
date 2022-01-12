@@ -1,5 +1,7 @@
 import { Box, Button, Container, TextField, Typography } from "@mui/material";
-import React from "react";
+import React, { useRef } from "react";
+import emailjs from "@emailjs/browser";
+import Swal from "sweetalert2";
 import { makeStyles } from "@mui/styles";
 
 const Contact = () => {
@@ -16,9 +18,37 @@ const Contact = () => {
   });
 
   const { btnColor } = useStyle();
+
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_34qhcuj",
+        "template_k88rvlf",
+        form.current,
+        "user_xQ2aTrW3Jba3Qhnj7eftS"
+      )
+      .then(
+        (result) => {
+          Swal.fire("Good job!", "Message Send Successfully!", "success");
+        },
+        (error) => {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: error.message,
+          });
+        }
+      );
+    e.target.reset();
+  };
+
   return (
     <Box>
-      <Container>
+      <Container id="contact">
         <Typography
           sx={{
             fontWeight: 500,
@@ -54,7 +84,7 @@ const Contact = () => {
         >
           project, professionally.
         </Typography>
-        <Box
+        {/* <Box
           component="form"
           sx={{
             "& .MuiTextField-root": { m: 1, width: "25ch", maxWidth: "100%" },
@@ -62,59 +92,137 @@ const Contact = () => {
           noValidate
           autoComplete="off"
         >
-          <div style={{ textAlign: "center" }}>
-            <TextField
-              sx={{ background: "#F1F3F6" }}
-              id="outlined-basic"
-              label="First Name"
-              variant="outlined"
-            />
-            <TextField
-              sx={{ background: "#F1F3F6" }}
-              id="outlined-basic"
-              label="Last Name"
-              variant="outlined"
-            />
-          </div>
-          <div style={{ textAlign: "center" }}>
-            <TextField
-              sx={{ background: "#F1F3F6" }}
-              id="outlined-basic"
-              label="Email Address"
-              variant="outlined"
-            />
-            <TextField
-              sx={{ background: "#F1F3F6" }}
-              id="outlined-basic"
-              label="Phone Number"
-              variant="outlined"
-            />
-          </div>
-          <div style={{ textAlign: "center" }}>
-            <TextField
+          <form ref={form} onSubmit={sendEmail}>
+            <div style={{ textAlign: "center" }}>
+              <TextField
+                sx={{ background: "#F1F3F6" }}
+                id="outlined-basic"
+                label="First Name"
+                variant="outlined"
+                name="firstName"
+              />
+              <TextField
+                sx={{ background: "#F1F3F6" }}
+                id="outlined-basic"
+                label="Last Name"
+                variant="outlined"
+                name="lastName"
+              />
+            </div>
+            <div style={{ textAlign: "center" }}>
+              <TextField
+                sx={{ background: "#F1F3F6" }}
+                id="outlined-basic"
+                label="Email Address"
+                variant="outlined"
+                name="email"
+              />
+              <TextField
+                sx={{ background: "#F1F3F6" }}
+                id="outlined-basic"
+                label="Phone Number"
+                variant="outlined"
+                name="phone"
+              />
+            </div>
+            <div style={{ textAlign: "center" }}>
+              <TextField
+                sx={{
+                  width: "52ch !important",
+                  background: "#F1F3F6",
+                }}
+                multiline
+                rows={3}
+                id="outlined-basic"
+                label="Your Message"
+                variant="outlined"
+                name="message"
+              />
+            </div>
+            <Typography
               sx={{
-                width: "52ch !important",
-                background: "#F1F3F6",
+                mt: 2,
+                mb: 2,
+                textAlign: "center",
               }}
-              multiline
-              rows={3}
-              id="outlined-basic"
-              label="Your Message"
-              variant="outlined"
-            />
+            >
+              <Button className={btnColor} type="submit">
+                Send Message
+              </Button>
+            </Typography>
+          </form>
+        </Box> */}
+        <form ref={form} onSubmit={sendEmail}>
+          <div className="row mt-5">
+            <div className="col-md-6 col-12">
+              <div className="mb-3">
+                <label className="form-label fw-bold">Name</label>
+                <input
+                  type="name"
+                  className="form-control"
+                  id="name"
+                  name="name"
+                  placeholder="Full name"
+                  style={{ background: "#F1F3F6" }}
+                />
+              </div>
+              <div className="mb-3">
+                <label className="form-label fw-bold">Email</label>
+                <input
+                  type="email"
+                  className="form-control"
+                  id="email"
+                  name="email"
+                  placeholder="Email address"
+                  style={{ background: "#F1F3F6" }}
+                />
+              </div>
+              <div className="mb-3">
+                <label className="form-label fw-bold">Phone</label>
+                <input
+                  type="number"
+                  className="form-control"
+                  id="phone"
+                  name="phone"
+                  placeholder="Mobile Number"
+                  style={{ background: "#F1F3F6" }}
+                />
+              </div>
+            </div>
+            <div className="col-md-6 col-12">
+              <div className="mb-3">
+                <label className="form-label fw-bold">Message</label>
+                <textarea
+                  className="form-control"
+                  placeholder="What's on your mind?"
+                  id="message"
+                  name="message"
+                  rows="6"
+                  style={{ background: "#F1F3F6" }}
+                ></textarea>
+              </div>
+              <div>
+                <button
+                  style={{
+                    fontSize: "1rem",
+                    textTransform: "capitalize",
+                    border: "none",
+                    paddingTop: "5px",
+                    paddingBottom: "5px",
+                    paddingLeft: "8px",
+                    paddingRight: "8px",
+                    borderRadius: "5px",
+                  }}
+                  className={btnColor}
+                  type="submit"
+                  value="Send Message"
+                >
+                  Send Message
+                </button>
+              </div>
+            </div>
           </div>
-          <Typography
-            sx={{
-              mt: 2,
-              mb: 2,
-              textAlign: "center",
-            }}
-          >
-            <Button className={btnColor} type="submit">
-              Send Message
-            </Button>
-          </Typography>
-        </Box>
+        </form>
       </Container>
     </Box>
   );

@@ -88,15 +88,7 @@ const Navigation = () => {
         <ListItem button>
           <ListItemText>
             <NavLink className={navItem} to="">
-              <Button color="inherit">Projects</Button>
-            </NavLink>
-          </ListItemText>
-        </ListItem>
-        <Divider />
-        <ListItem button>
-          <ListItemText>
-            <NavLink className={navItem} to="">
-              <Button color="inherit">Contact</Button>
+              <Button color="inherit">All Services</Button>
             </NavLink>
           </ListItemText>
         </ListItem>
@@ -175,10 +167,7 @@ const Navigation = () => {
                   <Button color="inherit">About us</Button>
                 </NavLink>
                 <NavLink className={navItem} to="">
-                  <Button color="inherit">Projects</Button>
-                </NavLink>
-                <NavLink className={navItem} to="">
-                  <Button color="inherit">Contact</Button>
+                  <Button color="inherit">All Services</Button>
                 </NavLink>
 
                 {user?.email && (
