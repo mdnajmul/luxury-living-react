@@ -1,9 +1,13 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { useDispatch, useSelector } from "react-redux";
+import Swal from "sweetalert2";
+import { addServiceData, setServiceAdded } from "../../../store/adminDashboard";
 import cloudImage from "../../../images/cloud-upload.png";
 import "./AddService.css";
 
 const AddService = () => {
+  const dispatch = useDispatch();
   // React Hook Form
   const {
     register,
@@ -17,11 +21,13 @@ const AddService = () => {
     const formData = new FormData();
     formData.append("title", title);
     formData.append("price", price);
-    formData.append("image", image[0]);
+    formData.append("img", image[0]);
     formData.append("description", description);
 
     // Send form data to Server
-    // dispatch(addProductData(formData));
+    dispatch(addServiceData(formData));
+
+    Swal.fire("Good job!", "Service Added Successfully!", "success");
 
     reset();
     // setLoader(true);
