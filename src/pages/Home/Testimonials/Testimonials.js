@@ -1,20 +1,26 @@
-import {
-  Box,
-  Card,
-  CardContent,
-  CardMedia,
-  Container,
-  Grid,
-  Rating,
-  Typography,
-} from "@mui/material";
-import React from "react";
+import { Box, Container, Grid, Typography } from "@mui/material";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Slider from "react-slick";
-import user1 from "../../../images/user1.png";
-import user2 from "../../../images/user2.png";
-import user3 from "../../../images/user3.png";
+import { loadTestimonials } from "../../../store/userDashboard";
+import Review from "./Review";
 
 const Testimonials = () => {
+  const dispatch = useDispatch();
+
+  const testimonials = useSelector(
+    (state) => state.entities.userDashboard.testimonials.allTestimonial
+  );
+
+  // const testimonialsLoading = useSelector(
+  //   (state) => state.entities.userDashboard.testimonials.testimonialLoading
+  // );
+
+  //Get All Reviews
+  useEffect(() => {
+    dispatch(loadTestimonials());
+  }, []);
+
   var settings = {
     dots: false,
     infinite: true,
@@ -64,185 +70,16 @@ const Testimonials = () => {
             color: "#1F1632",
             textAlign: "center",
           }}
-          variant="h6"
+          variant="h4"
           component="div"
         >
           Testimonials
         </Typography>
         <Grid>
           <Slider {...settings}>
-            <Grid sx={{ mt: 4 }}>
-              <Card sx={{ minWidth: 275, border: 0, boxShadow: 0 }}>
-                <CardMedia
-                  component="img"
-                  style={{
-                    width: "30%",
-                    margin: "0 auto",
-                    padding: "8px",
-                  }}
-                  image={user1}
-                  alt="green iguana"
-                />
-                <CardContent sx={{ px: 2 }}>
-                  <Typography
-                    sx={{ textAlign: "center", my: 2, color: "text.secondary" }}
-                    variant="body2"
-                  >
-                    <span>&#10077;</span>
-                    They have excellent, responsive technical support. Even if
-                    you think you have a dumb question, they are patient and
-                    happy to help.
-                    <span>&#10078;</span>
-                  </Typography>
-                  <Typography sx={{ textAlign: "center" }} variant="body2">
-                    <span style={{ color: "blue" }}>
-                      &#10149; {"Najmul Ovi"}
-                    </span>
-                  </Typography>
-                  <Typography
-                    sx={{ textAlign: "center", fontWeight: "500" }}
-                    variant="body2"
-                  >
-                    CEO, Manpol
-                  </Typography>
-                  <Typography
-                    sx={{ textAlign: "center", my: 2 }}
-                    variant="body2"
-                  >
-                    <Rating name="read-only" value={4} readOnly />
-                  </Typography>
-                </CardContent>
-              </Card>
-            </Grid>
-            <Grid sx={{ mt: 4 }}>
-              <Card sx={{ minWidth: 275, border: 0, boxShadow: 0 }}>
-                <CardMedia
-                  component="img"
-                  style={{
-                    width: "30%",
-                    margin: "0 auto",
-                    padding: "8px",
-                  }}
-                  image={user2}
-                  alt="green iguana"
-                />
-                <CardContent sx={{ px: 2 }}>
-                  <Typography
-                    sx={{ textAlign: "center", my: 2, color: "text.secondary" }}
-                    variant="body2"
-                  >
-                    <span>&#10077;</span>
-                    They have excellent, responsive technical support. Even if
-                    you think you have a dumb question, they are patient and
-                    happy to help.
-                    <span>&#10078;</span>
-                  </Typography>
-                  <Typography sx={{ textAlign: "center" }} variant="body2">
-                    <span style={{ color: "blue" }}>
-                      &#10149; {"Najmul Ovi"}
-                    </span>
-                  </Typography>
-                  <Typography
-                    sx={{ textAlign: "center", fontWeight: "500" }}
-                    variant="body2"
-                  >
-                    CEO, Manpol
-                  </Typography>
-                  <Typography
-                    sx={{ textAlign: "center", my: 2 }}
-                    variant="body2"
-                  >
-                    <Rating name="read-only" value={4} readOnly />
-                  </Typography>
-                </CardContent>
-              </Card>
-            </Grid>
-            <Grid sx={{ mt: 4 }}>
-              <Card sx={{ minWidth: 275, border: 0, boxShadow: 0 }}>
-                <CardMedia
-                  component="img"
-                  style={{
-                    width: "30%",
-                    margin: "0 auto",
-                    padding: "8px",
-                  }}
-                  image={user3}
-                  alt="green iguana"
-                />
-                <CardContent sx={{ px: 2 }}>
-                  <Typography
-                    sx={{ textAlign: "center", my: 2, color: "text.secondary" }}
-                    variant="body2"
-                  >
-                    <span>&#10077;</span>
-                    They have excellent, responsive technical support. Even if
-                    you think you have a dumb question, they are patient and
-                    happy to help.
-                    <span>&#10078;</span>
-                  </Typography>
-                  <Typography sx={{ textAlign: "center" }} variant="body2">
-                    <span style={{ color: "blue" }}>
-                      &#10149; {"Najmul Ovi"}
-                    </span>
-                  </Typography>
-                  <Typography
-                    sx={{ textAlign: "center", fontWeight: "500" }}
-                    variant="body2"
-                  >
-                    CEO, Manpol
-                  </Typography>
-                  <Typography
-                    sx={{ textAlign: "center", my: 2 }}
-                    variant="body2"
-                  >
-                    <Rating name="read-only" value={4} readOnly />
-                  </Typography>
-                </CardContent>
-              </Card>
-            </Grid>
-            <Grid sx={{ mt: 4 }}>
-              <Card sx={{ minWidth: 275, border: 0, boxShadow: 0 }}>
-                <CardMedia
-                  component="img"
-                  style={{
-                    width: "30%",
-                    margin: "0 auto",
-                    padding: "8px",
-                  }}
-                  image={user1}
-                  alt="green iguana"
-                />
-                <CardContent sx={{ px: 2 }}>
-                  <Typography
-                    sx={{ textAlign: "center", my: 2, color: "text.secondary" }}
-                    variant="body2"
-                  >
-                    <span>&#10077;</span>
-                    They have excellent, responsive technical support. Even if
-                    you think you have a dumb question, they are patient and
-                    happy to help.
-                    <span>&#10078;</span>
-                  </Typography>
-                  <Typography sx={{ textAlign: "center" }} variant="body2">
-                    <span style={{ color: "blue" }}>
-                      &#10149; {"Najmul Ovi"}
-                    </span>
-                  </Typography>
-                  <Typography
-                    sx={{ textAlign: "center", fontWeight: "500" }}
-                    variant="body2"
-                  >
-                    CEO, Manpol
-                  </Typography>
-                  <Typography
-                    sx={{ textAlign: "center", my: 2 }}
-                    variant="body2"
-                  >
-                    <Rating name="read-only" value={4} readOnly />
-                  </Typography>
-                </CardContent>
-              </Card>
-            </Grid>
+            {testimonials.map((review) => (
+              <Review key={review._id} review={review}></Review>
+            ))}
           </Slider>
         </Grid>
       </Container>
