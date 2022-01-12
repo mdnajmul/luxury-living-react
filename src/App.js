@@ -9,6 +9,7 @@ import Register from "./pages/Login/Register/Register";
 import PageNotFound from "./pages/PageNotFound/PageNotFound";
 import Footer from "./pages/Shared/Footer/Footer";
 import Navigation from "./pages/Shared/Navigation/Navigation";
+import Shipping from "./pages/Shipping/Shipping";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 
 function App() {
@@ -27,6 +28,16 @@ function App() {
             <AllServices />
             <Footer />
           </>
+        }
+      />
+      <Route
+        path="/services/:bookId"
+        element={
+          <PrivateRoute>
+            <Navigation />
+            <Shipping />
+            <Footer />
+          </PrivateRoute>
         }
       />
       <Route path="*" element={<PageNotFound />} />
