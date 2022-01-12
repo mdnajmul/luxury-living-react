@@ -79,7 +79,7 @@ const Navigation = () => {
         <Divider />
         <ListItem button>
           <ListItemText>
-            <NavLink className={navItem} to="">
+            <NavLink className={navItem} to="/aboutus">
               <Button color="inherit">About us</Button>
             </NavLink>
           </ListItemText>
@@ -166,7 +166,7 @@ const Navigation = () => {
                 <NavLink className={navItem} to="/home">
                   <Button color="inherit">Home</Button>
                 </NavLink>
-                <NavLink className={navItem} to="">
+                <NavLink className={navItem} to="/aboutus">
                   <Button color="inherit">About us</Button>
                 </NavLink>
                 <NavLink className={navItem} to="/all-services">
