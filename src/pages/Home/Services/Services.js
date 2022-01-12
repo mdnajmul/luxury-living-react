@@ -1,17 +1,5 @@
-import {
-  Box,
-  Button,
-  Card,
-  CardContent,
-  CardMedia,
-  Container,
-  Grid,
-  Typography,
-} from "@mui/material";
+import { Box, Button, Container, Grid, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import officeInteriorImg from "../../../images/office_interior.png";
-import showroomDesignImg from "../../../images/showroom_design.png";
-import residentialImg from "../../../images/residential.png";
 import { makeStyles } from "@mui/styles";
 import { NavLink } from "react-router-dom";
 import Service from "../../Service/Service";
@@ -94,7 +82,7 @@ const Services = () => {
             textAlign: "center",
           }}
         >
-          <NavLink className={navBtn} to="">
+          <NavLink className={navBtn} to="/all-services">
             <Button className={btnColor}>Explore more</Button>
           </NavLink>
         </Typography>

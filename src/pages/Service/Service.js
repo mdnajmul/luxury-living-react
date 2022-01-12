@@ -19,6 +19,7 @@ const Service = (props) => {
             component="img"
             style={{
               width: "30%",
+              height: "100px",
               margin: "0 auto",
               padding: "8px",
             }}
@@ -56,7 +57,7 @@ const Service = (props) => {
               variant="p"
               component="p"
             >
-              {description}
+              {description.slice(0, 122)}
             </Typography>
             <Typography sx={{ textAlign: "center", mt: 2 }} variant="body2">
               <NavLink

@@ -61,7 +61,7 @@ const Banner = () => {
                 <NavLink
                   style={{ marginLeft: "-10px" }}
                   className={navBtn}
-                  to=""
+                  to="/all-services"
                 >
                   <Button className={btnColor}>Booking</Button>
                 </NavLink>

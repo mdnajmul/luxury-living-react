@@ -19,7 +19,7 @@ import "./Navigation.css";
 import useAuth from "../../../hooks/useAuth";
 
 const Navigation = () => {
-  const { user, admin, logOut } = useAuth();
+  const { user, logOut } = useAuth();
   const theme = useTheme();
   const useStyle = makeStyles({
     navItem: {
@@ -71,7 +71,7 @@ const Navigation = () => {
       <List>
         <ListItem button>
           <ListItemText>
-            <NavLink className={navItem} to="/">
+            <NavLink className={navItem} to="/home">
               <Button color="inherit">Home</Button>
             </NavLink>
           </ListItemText>
@@ -87,7 +87,7 @@ const Navigation = () => {
         <Divider />
         <ListItem button>
           <ListItemText>
-            <NavLink className={navItem} to="">
+            <NavLink className={navItem} to="/all-services">
               <Button color="inherit">All Services</Button>
             </NavLink>
           </ListItemText>
@@ -151,22 +151,25 @@ const Navigation = () => {
               >
                 <MenuIcon />
               </IconButton>
+
               <Typography
                 className={navLogo}
                 variant="h6"
                 component="div"
                 sx={{ flexGrow: 1 }}
               >
-                <img height="45" width="130" src={logo} alt="" />
+                <NavLink to="/" style={{ cursor: "pointer" }}>
+                  <img height="45" width="130" src={logo} alt="" />
+                </NavLink>
               </Typography>
               <Box className={navItemContainer}>
-                <NavLink className={navItem} to="/">
+                <NavLink className={navItem} to="/home">
                   <Button color="inherit">Home</Button>
                 </NavLink>
                 <NavLink className={navItem} to="">
                   <Button color="inherit">About us</Button>
                 </NavLink>
-                <NavLink className={navItem} to="">
+                <NavLink className={navItem} to="/all-services">
                   <Button color="inherit">All Services</Button>
                 </NavLink>
 
